@@ -7571,14 +7571,56 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => __WEBPACK_DEFAULT_EXPORT__
 /* harmony export */ });
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n        query ($id: ID!) {\n          user(id: $id) {\n              id\n              name\n              avatar\n              posts {\n                title\n                body\n              }\n          }\n        }"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
 //
 //
 //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "Post"
+  name: "Post",
+  apollo: {
+    user: {
+      query: graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject()),
+      variables: function variables() {
+        return {
+          id: this.$route.params.id
+        };
+      }
+    }
+  }
 });
 
 /***/ }),
@@ -7598,7 +7640,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_PostListItem__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/PostListItem */ "./resources/js/components/PostListItem.vue");
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["query\n    {\n      posts {\n        user_id\n        title\n        body\n      }\n    }"]);
+  var data = _taggedTemplateLiteral(["query\n    {\n      posts {\n        id\n        user_id\n        title\n        body\n      }\n    }"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -32907,7 +32949,65 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("\n  post page please welcome\n")])
+  return _c(
+    "div",
+    {
+      staticClass:
+        "container mx-auto px-4 w-full md:w-3/4 lg:w-3/5 xl:w-1/2 mt-20"
+    },
+    [
+      _vm.$apollo.loading
+        ? _c("div", [_vm._v("Loading...")])
+        : _c(
+            "div",
+            [
+              _c("div", { staticClass: "text-lg text-gray-600" }, [
+                _vm._v("By " + _vm._s(_vm.user.name) + " in Links 3 hours ago")
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.user.posts, function(post) {
+                return _c("div", { key: _vm.user.posts.id }, [
+                  _c("h1", { staticClass: "text-5xl mt-10 font-bold mb-12" }, [
+                    _vm._v(_vm._s(post.title))
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      staticClass:
+                        "text-gray-700 pb-3 pb-12 whitespace-pre-line"
+                    },
+                    [_vm._v(_vm._s(post.body))]
+                  )
+                ])
+              }),
+              _vm._v(" "),
+              _c("div", { staticClass: "mb-24 flex" }, [
+                _c("div", { staticClass: "mr-6" }, [
+                  _c("img", {
+                    staticClass: "w-16 h-16 rounded-full",
+                    attrs: {
+                      src: "/storage/faces/" + _vm.user.avatar,
+                      alt: "Author avatar"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c("div", { staticClass: "flex flex-col justify-center" }, [
+                  _c("div", { staticClass: "text-lg text-gray-600" }, [
+                    _vm._v("Written by " + _vm._s(_vm.user.name))
+                  ]),
+                  _vm._v(" "),
+                  _c("div", { staticClass: "text-gray-600" }, [
+                    _vm._v("Published in Links on August 19, 2020")
+                  ])
+                ])
+              ])
+            ],
+            2
+          )
+    ]
+  )
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -32996,7 +33096,7 @@ var render = function() {
         _vm._v(_vm._s(_vm.post.body))
       ]),
       _vm._v(" "),
-      _c("div", [_vm._v("\n    By RidaFD$nbsp;in Links$nbsp;.3 hours ago\n  ")])
+      _c("div", [_vm._v("\n    by hasan\n  ")])
     ],
     1
   )

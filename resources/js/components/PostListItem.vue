@@ -5,7 +5,7 @@
     </router-link>
     <p class="text-gray-600 pb-3">{{ post.body }}</p>
     <div>
-      By RidaFD$nbsp;in Links$nbsp;.3 hours ago
+      by hasan
     </div>
   </div>
 </template>

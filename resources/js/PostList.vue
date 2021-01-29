@@ -20,6 +20,7 @@ export default {
     posts: gql `query
     {
       posts {
+        id
         user_id
         title
         body

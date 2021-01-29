@@ -24,6 +24,7 @@ export default {
         user_id
         title
         body
+        created_at
       }
     }`
   }

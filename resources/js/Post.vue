@@ -14,7 +14,7 @@
         </div>
         <div class="flex flex-col justify-center">
           <div class="text-lg text-gray-600">Written by {{ user.name }}</div>
-          <div class="text-gray-600">Published in Links on August 19, 2020</div>
+          <div class="text-gray-600">Published in Links on {{ user.posts.created_at | longDate }}</div>
         </div>
       </div>
     </div>
@@ -37,6 +37,7 @@ export default {
               posts {
                 title
                 body
+                created_at
               }
           }
         }`,

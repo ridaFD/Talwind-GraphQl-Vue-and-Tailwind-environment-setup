@@ -20,6 +20,13 @@ const routes = [
         path: '/post/:id',
         name: 'Post',
         component: Post
+    },
+    {
+        path: '*',
+        name: '404',
+        component: {
+            template: '<div>Page not found</div>'
+        }
     }
 ]
 

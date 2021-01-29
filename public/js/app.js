@@ -7618,6 +7618,12 @@ function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(
         return {
           id: this.$route.params.id
         };
+      },
+      error: function error() {
+        console.log('404');
+        this.$router.push({
+          name: '404'
+        });
       }
     }
   }
@@ -7743,6 +7749,12 @@ var routes = [{
   path: '/post/:id',
   name: 'Post',
   component: _Post_vue__WEBPACK_IMPORTED_MODULE_3__.default
+}, {
+  path: '*',
+  name: '404',
+  component: {
+    template: '<div>Page not found</div>'
+  }
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_6__.default({
   mode: 'history',

@@ -3,8 +3,8 @@ import VueApollo from 'vue-apollo'
 import Vue from 'vue';
 import VueRouter from 'vue-router'
 import './bootstrap'
-import PostList from './components/PostList.vue';
-import Post from './components/Post.vue';
+import PostList from './PostList.vue';
+import Post from './Post.vue';
 
 window.Vue = Vue;
 Vue.use(VueRouter);
